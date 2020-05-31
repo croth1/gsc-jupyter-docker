@@ -1,0 +1,5 @@
+openssh-client
+wget
+nano
+less
+vim

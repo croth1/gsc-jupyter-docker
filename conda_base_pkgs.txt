@@ -1,0 +1,4 @@
+jupyterlab
+nb_conda_kernels
+git
+vim
