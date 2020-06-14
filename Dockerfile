@@ -44,4 +44,4 @@ RUN mkdir -p /etc/jupyter_cfg
 
 USER gsc-course
 WORKDIR /home/gsc-course/workspace
-#ENTRYPOINT jupyter lab --config /etc/jupyter_cfg/jupyterlab_config.py
+ENTRYPOINT jupyter lab --config /etc/jupyter_cfg/jupyterlab_config.py
