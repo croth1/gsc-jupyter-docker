@@ -11,7 +11,6 @@ WORKDIR /tmp_files
 COPY apt_pkgs.txt apt_pkgs.txt
 RUN apt-get update && xargs -a apt_pkgs.txt apt-get install --yes
 
-COPY py37.yml py37.yml
 COPY conda_base_pkgs.txt conda_base_pkgs.txt
 RUN wget -q https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 
@@ -26,8 +25,13 @@ RUN echo "conda activate base" >> ~/.bashrc
 ENV PATH /home/gsc-course/miniconda3/bin:$PATH
 
 RUN conda install -c conda-forge --file /tmp_files/conda_base_pkgs.txt --yes
-RUN conda env create --file /tmp_files/py37.yml
+
+COPY py37.yml /tmp_files/py37.yml
+RUN mamba env create --file /tmp_files/py37.yml
+
 RUN . ~/miniconda3/etc/profile.d/conda.sh && conda activate py37 && ipython kernel install --user --name py37 --display-name py37
+
+RUN conda clean --all --yes
 
 COPY --chown=gsc-course misc_files/.gitattributes /home/gsc-course/.gitattributes
 COPY --chown=gsc-course misc_files/.gitconfig /home/gsc-course/.gitconfig
@@ -40,4 +44,4 @@ RUN mkdir -p /etc/jupyter_cfg
 
 USER gsc-course
 WORKDIR /home/gsc-course/workspace
-ENTRYPOINT jupyter lab --config /etc/jupyter_cfg/jupyterlab_config.py
+#ENTRYPOINT jupyter lab --config /etc/jupyter_cfg/jupyterlab_config.py

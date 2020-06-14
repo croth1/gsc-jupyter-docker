@@ -16,5 +16,6 @@ dependencies:
   - h5py
   - skewer
   - bowtie
-  - samtools 
+  - samtools
+  - matplotlib
 
