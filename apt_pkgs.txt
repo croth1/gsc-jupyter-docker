@@ -3,3 +3,6 @@ wget
 nano
 less
 vim
+bash
+bash-completion
+ttf-ubuntu-font-family

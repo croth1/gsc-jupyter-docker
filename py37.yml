@@ -1,10 +1,20 @@
 name: py37
 channels:
   - conda-forge
+  - bioconda
 dependencies:
   - python=3.7
+  - git
   - ipykernel
   - numpy
+  - scipy
   - pandas
   - scipy
+  - snakemake
+  - graphviz
+  - biopython
+  - h5py
+  - skewer
+  - bowtie
+  - samtools 
 
