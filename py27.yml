@@ -1,9 +1,0 @@
-name: py27
-channels:
-  - conda-forge
-dependencies:
-  - python=2.7
-  - ipykernel
-  - numpy
-  - scipy
-  - pandas
