@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-RUN useradd -ms /bin/bash gsc-course
+RUN useradd -ms /bin/bash -u 4242 gsc-course
 
 EXPOSE 8888
 
